@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="uz">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -46,7 +46,9 @@
     .brand { display: inline-flex; align-items: center; gap: 10px; border: 0; padding: 0; background: transparent; cursor: pointer; font-size: 13px; font-weight: 750; letter-spacing: -.035em; }
     .brand-mark { display: grid; place-items: center; width: 31px; height: 31px; border-radius: 10px; background: var(--ink); color: #fff; font-size: 11px; letter-spacing: -.06em; }
     .language-picker { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border: 1px solid #e5e5e8; border-radius: 999px; background: rgba(255,255,255,.72); }
-    .lang-button { min-width: 38px; height: 29px; padding: 0 9px; border: 0; border-radius: 999px; background: transparent; color: #77777d; font-size: 10px; font-weight: 750; cursor: pointer; transition: color .16s, background .16s, box-shadow .16s; }
+    .lang-button { min-width: 38px; height: 29px; padding: 0 9px; border: 0; border-radius: 999px; background: transparent; color: #77777d; font-size: 10px; font-weight: 750; cursor: pointer; transition: background .15s ease, color .15s ease, transform .15s ease; }
+    .lang-button:hover { background: #f0f0f1; }
+    .lang-button:active { transform: scale(.98); }
     .lang-button[aria-pressed="true"] { color: #fff; background: #262629; box-shadow: 0 1px 3px #00000018; }
 
     .main { min-height: calc(100svh - 126px); padding-top: clamp(34px, 5.5vw, 66px); padding-bottom: 76px; }
@@ -77,7 +79,7 @@
     .album-card:focus-visible .album-cover { outline: 3px solid #8fc5ff; outline-offset: 3px; }
 
     .album-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin: 1px 0 32px; }
-    .back-button { display: inline-flex; align-items: center; gap: 8px; padding: 9px 12px 9px 9px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: #4d4d52; font-size: 12px; font-weight: 650; cursor: pointer; transition: background .16s, transform .16s; }
+    .back-button { display: inline-flex; align-items: center; gap: 8px; padding: 9px 12px 9px 9px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: #4d4d52; font-size: 12px; font-weight: 700; cursor: pointer; }
     .back-button:hover { background: #f0f0f2; }
     .back-button:active { transform: scale(.98); }
     .back-button svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
@@ -92,7 +94,7 @@
     .photo-tile:active img { transform: scale(1.015); }
     .photo-index { position: absolute; right: 8px; bottom: 7px; color: white; font-size: 9px; font-weight: 700; text-shadow: 0 1px 5px #0009; opacity: .9; }
 
-    .message { display: flex; align-items: flex-start; gap: 12px; margin-top: 16px; padding: 16px 17px; border: 1px solid var(--line); border-radius: 14px; background: #fff; color: var(--muted); font-size: 12px; line-height: 1.65; }
+    .message { display: flex; align-items: flex-start; gap: 12px; margin-top: 16px; padding: 16px 17px; border: 1px solid var(--line); border-radius: 14px; background: #fff; color: var(--muted); font-size: 13px; line-height: 1.5; }
     .message-dot { flex: 0 0 auto; width: 7px; height: 7px; margin-top: 6px; border-radius: 50%; background: #a4a4aa; }
     .message[data-state="loading"] .message-dot { background: var(--blue); box-shadow: 0 0 0 4px #087ff51a; animation: pulse 1.3s ease-in-out infinite; }
     .message[data-state="error"] .message-dot { background: #cf7a3a; }
@@ -111,7 +113,7 @@
     .viewer-title-wrap { min-width: 0; text-align: center; }
     .viewer-title { display: block; overflow: hidden; font-size: 12px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
     .viewer-count { display: block; margin-top: 4px; color: #9c9ca2; font-size: 10px; font-variant-numeric: tabular-nums; }
-    .viewer-icon { display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 1px solid #ffffff20; border-radius: 50%; background: #ffffff0d; color: white; cursor: pointer; transition: background .16s; }
+    .viewer-icon { display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 1px solid #ffffff20; border-radius: 50%; background: #ffffff0d; color: white; cursor: pointer; }
     .viewer-icon:hover { background: #ffffff20; }
     .viewer-icon svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
     .viewer-stage { position: relative; display: grid; place-items: center; min-height: 0; padding: 6px 58px; touch-action: pan-y; }
@@ -167,9 +169,7 @@
         <span class="brand-mark" aria-hidden="true">MS</span><span data-i18n="brand">MY STORY</span>
       </button>
       <div class="language-picker" role="group" aria-label="Language" id="languagePicker">
-        <button class="lang-button" type="button" data-lang="uz" aria-pressed="true">UZ</button>
-        <button class="lang-button" type="button" data-lang="ru" aria-pressed="false">RU</button>
-        <button class="lang-button" type="button" data-lang="en" aria-pressed="false">EN</button>
+        <button class="lang-button" type="button" data-lang="en" aria-pressed="true">EN</button>
       </div>
     </div>
   </header>
@@ -177,13 +177,13 @@
   <main class="main">
     <section id="homeView" aria-labelledby="homeTitle">
       <div class="intro">
-        <p class="eyebrow" data-i18n="libraryLabel">SHAXSIY FOTOARXIV</p>
-        <h1 class="page-title" id="homeTitle" data-i18n="albumsTitle">Albomlar</h1>
-        <p class="page-subtitle" data-i18n="homeSubtitle">Uch bob. Bir hikoya. Har bir xotira o‘z albomida.</p>
+        <p class="eyebrow" data-i18n="libraryLabel">PERSONAL PHOTO LIBRARY</p>
+        <h1 class="page-title" id="homeTitle" data-i18n="albumsTitle">Albums</h1>
+        <p class="page-subtitle" data-i18n="homeSubtitle">Three chapters. One story. Every memory in its own album.</p>
       </div>
       <div class="album-grid" id="albumGrid" aria-label="Photo albums"></div>
       <div class="message" id="homeMessage" role="status" aria-live="polite" data-state="loading">
-        <span class="message-dot" aria-hidden="true"></span><span id="homeMessageText">Suratlar yuklanmoqda…</span>
+        <span class="message-dot" aria-hidden="true"></span><span id="homeMessageText">Loading photos…</span>
       </div>
     </section>
 
@@ -191,14 +191,14 @@
       <div class="album-toolbar">
         <button class="back-button" id="backToAlbums" type="button">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 5-7 7 7 7M8 12h12"/></svg>
-          <span data-i18n="backToAlbums">Albomlar</span>
+          <span data-i18n="backToAlbums">Albums</span>
         </button>
-        <span class="toolbar-label" data-i18n="libraryLabel">SHAXSIY FOTOARXIV</span>
+        <span class="toolbar-label" data-i18n="libraryLabel">PERSONAL PHOTO LIBRARY</span>
       </div>
       <div class="album-heading">
         <div>
           <p class="eyebrow" id="albumEyebrow">ALBUM 01</p>
-          <h1 class="page-title" id="albumPageTitle">BOLALIGIM</h1>
+          <h1 class="page-title" id="albumPageTitle">MY CHILDHOOD</h1>
         </div>
         <p class="item-count" id="albumItemCount"></p>
       </div>
@@ -210,7 +210,7 @@
   </main>
 
   <footer class="app-footer">
-    <div class="footer-inner"><span data-i18n="footerLeft">MY STORY · SHAXSIY FOTOALBOM</span><span data-i18n="footerRight">Xotiralar shu yerda saqlanadi.</span></div>
+    <div class="footer-inner"><span data-i18n="footerLeft">MY STORY · PERSONAL PHOTO ALBUM</span><span data-i18n="footerRight">Memories live here.</span></div>
   </footer>
 
   <dialog class="viewer" id="photoViewer" aria-label="Photo viewer">
@@ -219,7 +219,7 @@
         <button class="viewer-icon" id="closeViewer" type="button" aria-label="Close photo" title="Close">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
         </button>
-        <div class="viewer-title-wrap"><strong class="viewer-title" id="viewerAlbumTitle">BOLALIGIM</strong><span class="viewer-count" id="viewerCount">01 / 01</span></div>
+        <div class="viewer-title-wrap"><strong class="viewer-title" id="viewerAlbumTitle">MY CHILDHOOD</strong><span class="viewer-count" id="viewerCount">01 / 01</span></div>
         <span aria-hidden="true"></span>
       </div>
       <div class="viewer-stage" id="viewerStage">
@@ -247,42 +247,6 @@
     ];
 
     const TEXT = {
-      uz: {
-        brand: "MY STORY", libraryLabel: "SHAXSIY FOTOARXIV", albumsTitle: "Albomlar",
-        homeSubtitle: "Uch bob. Bir hikoya. Har bir xotira o‘z albomida.",
-        localFileHelp: "Rasmlar papkalarini avtomatik o‘qish uchun bu HTML faylini ikki marta bosib emas, photo papkasidagi RUN-LOCAL.bat orqali oching. Papka tanlash shart emas.",
-        localServerHelp: "1/, 2/, 3/ papkalari ro‘yxati o‘qilmadi. photo papkasidagi RUN-LOCAL.bat faylini ishga tushiring.",
-        childhood: "BOLALIGIM", aviation: "AVIATSIYADAGI YO‘LIM", wrestling: "KURASHGA BO‘LGAN ISHTIYOQ",
-        childhoodDesc: "Bolalikdan qolgan xotiralar", aviationDesc: "Osmon sari qadamlar", wrestlingDesc: "Kuch, intizom va iroda",
-        backToAlbums: "Albomlar", photos: "ta surat", onePhoto: "1 ta surat", loading: "Suratlar yuklanmoqda…",
-        loadingShort: "Yuklanmoqda…", noPhotos: "Bu albomda hali surat yo‘q.", loadError: "Suratlarni yuklab bo‘lmadi.",
-        repositoryMissing: "GitHub manzili aniqlanmadi. Mahalliy papkalar uchun RUN-LOCAL.bat orqali oching.",
-        folderError: "1/, 2/, 3/ papkalari topilmadi. Ularni index.html bilan bir joyga joylang va repo public ekanini tekshiring. Sayt docs/ papkasidan tarqatilsa, rasmlar ham docs/1, docs/2, docs/3 ichida bo‘lsin.",
-        apiLimit: "GitHub API so‘rovlar chegarasiga yetdi. Birozdan keyin sahifani qayta oching.",
-        genericError: "Rasmlarni olishda xatolik yuz berdi. Repozitoriy public ekanini va internet ulanishini tekshiring.",
-        networkError: "GitHub bilan aloqa yo‘q. Internetni tekshirib, sahifani qayta yuklang.",
-        emptyRepository: "Albomlar tayyor, ammo suratlar topilmadi. Repozitoriy ildizidagi 1/, 2/, 3/ papkalariga JPG, PNG, WEBP yoki GIF suratlarni yuklang.",
-        openAlbum: "Albomni ochish", openPhoto: "Suratni ochish", closePhoto: "Suratni yopish",
-        previous: "Oldingi surat", next: "Keyingi surat", footerLeft: "MY STORY · SHAXSIY FOTOALBOM", footerRight: "Xotiralar shu yerda saqlanadi."
-      },
-      ru: {
-        brand: "MY STORY", libraryLabel: "ЛИЧНЫЙ ФОТОАРХИВ", albumsTitle: "Альбомы",
-        homeSubtitle: "Три главы. Одна история. Каждое воспоминание — в своём альбоме.",
-        localFileHelp: "Чтобы автоматически читать папки с фотографиями, откройте сайт через RUN-LOCAL.bat в папке photo, а не двойным щелчком по HTML. Выбирать папку не нужно.",
-        localServerHelp: "Не удалось прочитать список файлов в папках 1/, 2/, 3/. Запустите RUN-LOCAL.bat в папке photo.",
-        childhood: "МОЁ ДЕТСТВО", aviation: "МОЙ ПУТЬ В АВИАЦИИ", wrestling: "МОЯ СТРАСТЬ — БОРЬБА",
-        childhoodDesc: "Воспоминания детства", aviationDesc: "Шаги навстречу небу", wrestlingDesc: "Сила, дисциплина и воля",
-        backToAlbums: "Альбомы", photos: "фото", onePhoto: "1 фото", loading: "Загрузка фотографий…",
-        loadingShort: "Загрузка…", noPhotos: "В этом альбоме пока нет фотографий.", loadError: "Не удалось загрузить фотографии.",
-        repositoryMissing: "Адрес GitHub не определён. Для локальных папок запустите RUN-LOCAL.bat.",
-        folderError: "Папки 1/, 2/, 3/ не найдены. Разместите их рядом с index.html и проверьте, что репозиторий public. Если сайт публикуется из docs/, поместите фото в docs/1, docs/2, docs/3.",
-        apiLimit: "Достигнут лимит запросов GitHub API. Откройте страницу снова чуть позже.",
-        genericError: "Не удалось получить фотографии. Проверьте доступность репозитория и подключение к интернету.",
-        networkError: "Нет соединения с GitHub. Проверьте интернет и перезагрузите страницу.",
-        emptyRepository: "Альбомы готовы, но фотографии не найдены. Загрузите JPG, PNG, WEBP или GIF в папки 1/, 2/, 3/ в корне репозитория.",
-        openAlbum: "Открыть альбом", openPhoto: "Открыть фотографию", closePhoto: "Закрыть фото",
-        previous: "Предыдущее фото", next: "Следующее фото", footerLeft: "MY STORY · ЛИЧНЫЙ ФОТОАЛЬБОМ", footerRight: "Здесь хранятся воспоминания."
-      },
       en: {
         brand: "MY STORY", libraryLabel: "PERSONAL PHOTO LIBRARY", albumsTitle: "Albums",
         homeSubtitle: "Three chapters. One story. Every memory in its own album.",
@@ -320,16 +284,17 @@
     let sourceMode = "loading";
 
     function readSavedLanguage() {
-      try { const saved = localStorage.getItem("my-story-language"); if (saved && TEXT[saved]) return saved; } catch (_) {}
-      return "uz";
+      try {
+        const saved = localStorage.getItem("my-story-language");
+        if (saved === "en") return "en";
+      } catch (_) {}
+      return "en";
     }
     function t(key) { return TEXT[language][key] || TEXT.en[key] || key; }
     function albumTitle(album) { return t(album.key); }
     function albumDescription(album) { return t(album.key + "Desc"); }
 
     function findRepository() {
-      // On GitHub Pages, infer the owner/repository from the site URL. No manual
-      // repository setting is needed for normal username.github.io/repository/ URLs.
       const host = location.hostname.toLowerCase();
       if (host.endsWith(".github.io")) {
         const owner = host.slice(0, -".github.io".length);
@@ -346,8 +311,7 @@
 
     async function githubContents(repository, path = "") {
       const safePath = path.split("/").filter(Boolean).map(encodeURIComponent).join("/");
-      const query = "";
-      const endpoint = `https://api.github.com/repos/${encodeURIComponent(repository.owner)}/${encodeURIComponent(repository.repo)}/contents${safePath ? `/${safePath}` : ""}${query}`;
+      const endpoint = `https://api.github.com/repos/${encodeURIComponent(repository.owner)}/${encodeURIComponent(repository.repo)}/contents${safePath ? `/${safePath}` : ""}`;
       let response;
       try {
         response = await fetch(endpoint, {
@@ -370,9 +334,6 @@
     }
 
     async function findAlbumsBase(repository) {
-      // First look beside index.html. If Pages is published from /docs or another
-      // common static-site folder, look there too. Directory listing is impossible
-      // in browser-only hosting, so GitHub's public Contents API is used explicitly.
       const rootEntries = await githubContents(repository, "");
       if (hasAlbumFolder(rootEntries)) return "";
       const candidates = ["docs", "public", "site", "website", "www", "dist", "build"];
@@ -454,7 +415,7 @@
         if (TEXT[language][key]) node.textContent = t(key);
       });
       document.querySelectorAll("[data-lang]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.lang === language)));
-      document.querySelector(".language-picker").setAttribute("aria-label", language === "uz" ? "Tilni tanlash" : language === "ru" ? "Выбор языка" : "Choose language");
+      document.querySelector(".language-picker").setAttribute("aria-label", "Choose language");
       renderAlbumCards();
       if (activeAlbumId) renderAlbumPage();
       updateViewerLabels();
@@ -500,7 +461,7 @@
     function renderAlbumPage() {
       const album = ALBUMS.find(item => item.id === activeAlbumId);
       if (!album) return;
-      document.getElementById("albumEyebrow").textContent = `${language === "uz" ? "ALBOM" : language === "ru" ? "АЛЬБОМ" : "ALBUM"} ${album.number}`;
+      document.getElementById("albumEyebrow").textContent = `ALBUM ${album.number}`;
       document.getElementById("albumPageTitle").textContent = albumTitle(album);
       document.getElementById("albumItemCount").textContent = album.state === "loading" ? t("loadingShort") : formatCount(album.photos.length);
       photoGrid.replaceChildren();
@@ -561,7 +522,6 @@
       document.getElementById("nextPhoto").disabled = album.photos.length < 2;
       const progress = document.getElementById("viewerProgress");
       progress.replaceChildren();
-      const maxDots = Math.min(album.photos.length, 15);
       if (album.photos.length <= 15) {
         album.photos.forEach((_, index) => {
           const dot = document.createElement("span");
@@ -592,8 +552,6 @@
           .filter(item => item.type === "file" && IMAGE_EXTENSIONS.test(item.name))
           .sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: "base" }));
 
-        // Natural filename order means 1.jpg, 2.jpg, 10.jpg. The first sorted
-        // image becomes the album cover; all remaining images appear inside it.
         album.photos = files.map(file => ({
           src: file.download_url,
           label: fileLabel(file.name),
@@ -693,9 +651,6 @@
       renderLanguage();
       renderAlbumCards();
 
-      // A local file:// page cannot enumerate sibling folders in modern browsers.
-      // RUN-LOCAL.bat starts a tiny local web server, whose directory listings
-      // let this one HTML file discover all images without a picker or manifest.
       if (location.protocol === "file:") {
         sourceMode = "local-file";
         ALBUMS.forEach(album => { album.state = "loaded"; album.photos = []; album.errorCode = ""; });
