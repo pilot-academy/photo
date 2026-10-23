@@ -550,7 +550,12 @@
         const entries = await githubContents(repository, path);
         const files = entries
           .filter(item => item.type === "file" && IMAGE_EXTENSIONS.test(item.name))
-          .sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: "base" }));
+          .sort((a, b) => {
+            const aNew = /2026-/.test(a.name);
+            const bNew = /2026-/.test(b.name);
+            if (aNew !== bNew) return aNew ? 1 : -1;
+            return a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: "base" });
+          });
 
         album.photos = files.map(file => ({
           src: file.download_url,
@@ -619,7 +624,12 @@
       }
 
       const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
-      files.sort((a, b) => collator.compare(a.filename, b.filename));
+      files.sort((a, b) => {
+        const aNew = /2026-/.test(a.filename);
+        const bNew = /2026-/.test(b.filename);
+        if (aNew !== bNew) return aNew ? 1 : -1;
+        return collator.compare(a.filename, b.filename);
+      });
       album.photos = files;
       album.state = "loaded";
       album.errorCode = "";
