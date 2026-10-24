@@ -10,21 +10,14 @@
       :root {
         --bg: #edf6ff;
         --bg-strong: #dfeeff;
-        --panel: rgba(255, 255, 255, 0.76);
-        --panel-strong: rgba(255, 255, 255, 0.9);
-        --panel-alt: rgba(15, 49, 94, 0.04);
+        --panel: rgba(255, 255, 255, 0.8);
+        --panel-alt: rgba(8, 34, 60, 0.04);
         --ink: #0d1b2a;
         --muted: #49607d;
-        --soft: #6a7d98;
         --line: rgba(19, 47, 82, 0.12);
         --primary: #0b63f2;
         --primary-strong: #094fd1;
-        --primary-soft: rgba(11, 99, 242, 0.12);
-        --blue-glow: rgba(11, 99, 242, 0.18);
-        --shadow: 0 22px 60px rgba(13, 27, 42, 0.12);
-        --radius-xl: 30px;
-        --radius-lg: 24px;
-        --radius-md: 18px;
+        --shadow: 0 24px 60px rgba(13, 27, 42, 0.12);
         --width: 1180px;
       }
 
@@ -32,18 +25,14 @@
         color-scheme: dark;
         --bg: #071522;
         --bg-strong: #0d1d2d;
-        --panel: rgba(12, 27, 42, 0.78);
-        --panel-strong: rgba(17, 35, 52, 0.9);
-        --panel-alt: rgba(148, 196, 255, 0.05);
+        --panel: rgba(13, 23, 37, 0.82);
+        --panel-alt: rgba(148, 196, 255, 0.06);
         --ink: #edf7ff;
         --muted: #bfd6f1;
-        --soft: #9cc1e9;
         --line: rgba(156, 193, 233, 0.16);
         --primary: #74b3ff;
         --primary-strong: #8bc2ff;
-        --primary-soft: rgba(116, 179, 255, 0.14);
-        --blue-glow: rgba(116, 179, 255, 0.2);
-        --shadow: 0 30px 90px rgba(2, 8, 18, 0.5);
+        --shadow: 0 26px 80px rgba(2, 8, 18, 0.5);
       }
 
       * { box-sizing: border-box; }
@@ -53,8 +42,8 @@
         min-height: 100vh;
         font-family: Inter, "Segoe UI", Arial, sans-serif;
         background:
-          radial-gradient(circle at top left, rgba(11, 99, 242, 0.18), transparent 24%),
-          radial-gradient(circle at top right, rgba(96, 165, 250, 0.18), transparent 22%),
+          radial-gradient(circle at top left, rgba(11, 99, 242, 0.16), transparent 24%),
+          radial-gradient(circle at top right, rgba(96, 165, 250, 0.14), transparent 26%),
           linear-gradient(180deg, var(--bg) 0%, var(--bg-strong) 100%);
         color: var(--ink);
         -webkit-font-smoothing: antialiased;
@@ -68,32 +57,28 @@
         pointer-events: none;
         background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
         background-size: 42px 42px;
-        mask-image: radial-gradient(circle at center, black 32%, transparent 100%);
+        mask-image: radial-gradient(circle at center, black 34%, transparent 100%);
       }
 
-      button, input { font: inherit; }
-      button { cursor: pointer; }
+      button { font: inherit; cursor: pointer; }
+      img { display: block; max-width: 100%; }
       a { color: inherit; }
-      img { max-width: 100%; display: block; }
       [hidden] { display: none !important; }
 
-      .app-shell {
-        width: min(var(--width), calc(100% - 32px));
-        margin: 0 auto;
-      }
+      .app-shell { width: min(var(--width), calc(100% - 32px)); margin: 0 auto; }
 
       .topbar {
         position: sticky;
         top: 0;
-        z-index: 50;
+        z-index: 30;
+        background: rgba(237, 246, 255, 0.7);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        background: rgba(237, 246, 255, 0.62);
-        border-bottom: 1px solid rgba(39, 91, 151, 0.08);
+        border-bottom: 1px solid rgba(19,47,82,0.08);
       }
 
       html[data-theme="dark"] .topbar {
-        background: rgba(7, 21, 34, 0.6);
+        background: rgba(7, 21, 34, 0.68);
         border-bottom-color: rgba(156, 193, 233, 0.12);
       }
 
@@ -101,7 +86,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 16px;
         min-height: 76px;
       }
 
@@ -126,24 +110,16 @@
         height: 38px;
         border-radius: 14px;
         background: linear-gradient(135deg, #0b63f2, #60a5fa);
-        box-shadow: 0 12px 28px rgba(11, 99, 242, 0.28);
+        box-shadow: 0 12px 26px rgba(11, 99, 242, 0.24);
         color: white;
         font-size: 11px;
         letter-spacing: 0;
-      }
-
-      .controls {
-        display: inline-flex;
-        align-items: center;
-        gap: 12px;
       }
 
       .theme-toggle {
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        min-width: 118px;
-        justify-content: center;
         padding: 10px 14px;
         border: 1px solid var(--line);
         border-radius: 999px;
@@ -165,20 +141,16 @@
       .theme-text {
         font-size: 11px;
         font-weight: 800;
-        letter-spacing: 0.16em;
+        letter-spacing: 0.14em;
         text-transform: uppercase;
-      }
-
-      .main {
-        padding: 40px 0 64px;
       }
 
       .hero {
         display: grid;
-        grid-template-columns: 1.3fr 0.9fr;
+        grid-template-columns: 1.2fr 0.8fr;
         gap: 28px;
         align-items: center;
-        padding: 22px 0 18px;
+        padding: 42px 0 20px;
       }
 
       .eyebrow {
@@ -186,9 +158,9 @@
         align-items: center;
         gap: 8px;
         padding: 9px 14px;
-        border: 1px solid rgba(11, 99, 242, 0.12);
+        border: 1px solid rgba(11,99,242,0.12);
         border-radius: 999px;
-        background: rgba(255,255,255,0.34);
+        background: rgba(255,255,255,0.28);
         color: var(--primary-strong);
         font-size: 11px;
         font-weight: 800;
@@ -201,51 +173,49 @@
         height: 8px;
         border-radius: 50%;
         background: linear-gradient(135deg, #0b63f2, #7cc4ff);
-        box-shadow: 0 0 0 6px rgba(11, 99, 242, 0.1);
+        box-shadow: 0 0 0 6px rgba(11,99,242,0.1);
       }
 
       h1 {
-        margin: 18px 0 16px;
+        margin: 20px 0 14px;
         font-size: clamp(3rem, 5vw, 6rem);
-        line-height: 0.94;
-        letter-spacing: -0.07em;
+        line-height: 0.96;
+        letter-spacing: -0.08em;
       }
 
       .lead {
-        max-width: 680px;
         margin: 0;
+        max-width: 640px;
         color: var(--muted);
         font-size: 1.08rem;
-        line-height: 1.9;
+        line-height: 1.8;
       }
 
       .hero-actions {
         display: flex;
         flex-wrap: wrap;
         gap: 14px;
-        margin-top: 28px;
+        margin-top: 26px;
       }
 
       .primary-btn, .secondary-btn {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
         min-height: 52px;
         padding: 0 22px;
         border-radius: 16px;
         border: 1px solid transparent;
-        font-size: 0.82rem;
+        font-size: 0.8rem;
         font-weight: 800;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
       }
 
       .primary-btn {
         background: linear-gradient(135deg, var(--primary) 0%, #5ea4ff 100%);
         color: white;
-        box-shadow: 0 16px 30px rgba(11, 99, 242, 0.24);
+        box-shadow: 0 14px 28px rgba(11, 99, 242, 0.22);
       }
 
       .secondary-btn {
@@ -254,16 +224,12 @@
         color: var(--ink);
       }
 
-      .primary-btn:hover, .secondary-btn:hover, .theme-toggle:hover, .album-card:hover, .chip:hover, .stat:hover {
-        transform: translateY(-2px);
-      }
-
       .hero-panel {
         position: relative;
-        min-height: 420px;
+        min-height: 390px;
         padding: 22px;
         border: 1px solid var(--line);
-        border-radius: 32px;
+        border-radius: 30px;
         background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.04));
         box-shadow: var(--shadow);
         overflow: hidden;
@@ -285,24 +251,25 @@
 
       .mini-card {
         display: flex;
-        align-items: center;
         justify-content: space-between;
+        align-items: center;
         gap: 14px;
         padding: 16px 18px;
         border: 1px solid var(--line);
         border-radius: 22px;
-        background: rgba(255,255,255,0.2);
+        background: rgba(255,255,255,0.18);
       }
 
       .mini-card strong {
         display: block;
+        margin-top: 2px;
         font-size: 1.1rem;
         letter-spacing: -0.04em;
       }
 
       .mini-card span {
         color: var(--muted);
-        font-size: 0.75rem;
+        font-size: 0.7rem;
         font-weight: 700;
         letter-spacing: 0.14em;
         text-transform: uppercase;
@@ -339,8 +306,7 @@
         transform: rotate(12deg);
       }
 
-      .hero-shape::before,
-      .hero-shape::after {
+      .hero-shape::before, .hero-shape::after {
         content: "";
         position: absolute;
         border-radius: 24px;
@@ -352,7 +318,7 @@
       }
 
       .hero-shape::after {
-        inset: 58px 58px 52px 52px;
+        inset: 56px 58px 52px 52px;
         background: rgba(255,255,255,0.38);
         border: 1px solid rgba(255,255,255,0.25);
       }
@@ -361,11 +327,10 @@
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 18px;
-        margin-top: 28px;
+        margin-top: 18px;
       }
 
       .stat {
-        position: relative;
         padding: 22px 18px;
         border: 1px solid var(--line);
         border-radius: 22px;
@@ -404,7 +369,7 @@
         display: block;
         margin-top: 8px;
         color: var(--muted);
-        font-size: 0.8rem;
+        font-size: 0.78rem;
         font-weight: 700;
         letter-spacing: 0.12em;
         text-transform: uppercase;
@@ -415,21 +380,21 @@
         align-items: end;
         justify-content: space-between;
         gap: 12px;
-        margin: 52px 0 18px;
-      }
-
-      .section-title {
-        margin: 0;
-        font-size: clamp(1.8rem, 3vw, 3rem);
-        letter-spacing: -0.06em;
+        margin: 54px 0 18px;
       }
 
       .section-subtitle {
         margin: 0;
         color: var(--muted);
-        font-size: 0.92rem;
-        letter-spacing: 0.1em;
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
+      }
+
+      .section-title {
+        margin: 10px 0 0;
+        font-size: clamp(1.9rem, 3vw, 3rem);
+        letter-spacing: -0.06em;
       }
 
       .album-grid {
@@ -446,43 +411,40 @@
         box-shadow: var(--shadow);
         overflow: hidden;
         text-align: left;
-        transition: transform 0.2s ease, border-color 0.2s ease;
       }
 
       .album-cover {
         position: relative;
         display: block;
-        height: 240px;
+        height: 245px;
         overflow: hidden;
-        background: linear-gradient(135deg, rgba(11,99,242,0.1), rgba(124,196,255,0.08));
+        background: linear-gradient(135deg, rgba(11,99,242,0.08), rgba(124,196,255,0.06));
       }
 
-      .album-cover::before {
+      .album-cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .album-cover::after {
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(180deg, transparent 25%, rgba(7,8,16,0.32));
+        background: linear-gradient(180deg, transparent 25%, rgba(7,8,16,0.3));
       }
 
-      .album-cover svg {
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-        opacity: 0.75;
-      }
-
-      .album-cover .cover-number {
+      .cover-number {
         position: absolute;
         right: 18px;
         bottom: 18px;
-        z-index: 2;
+        z-index: 1;
+        color: rgba(255,255,255,0.98);
         font-size: 0.7rem;
         font-weight: 800;
         letter-spacing: 0.18em;
-        color: rgba(255,255,255,0.96);
-        text-shadow: 0 8px 22px rgba(0,0,0,0.28);
+        text-shadow: 0 8px 22px rgba(0,0,0,0.26);
       }
 
       .album-info {
@@ -493,7 +455,7 @@
       .album-title {
         display: block;
         font-size: 1.3rem;
-        line-height: 1.2;
+        line-height: 1.15;
         letter-spacing: -0.05em;
       }
 
@@ -509,7 +471,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 16px;
+        gap: 12px;
         margin-top: 16px;
       }
 
@@ -538,16 +500,219 @@
 
       .album-pointer {
         color: var(--primary-strong);
-        font-size: 0.74rem;
+        font-size: 0.72rem;
         font-weight: 900;
         letter-spacing: 0.14em;
         text-transform: uppercase;
       }
 
-      .footer {
-        padding: 28px 0 48px;
+      .gallery-shell[hidden] { display: none; }
+
+      .gallery-topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        margin: 28px 0 18px;
+      }
+
+      .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 16px 12px 12px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--panel);
+        color: var(--ink);
+      }
+
+      .back-button svg {
+        width: 15px;
+        height: 15px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 2;
+      }
+
+      .gallery-meta {
         color: var(--muted);
-        font-size: 0.74rem;
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .photo-tile {
+        position: relative;
+        overflow: hidden;
+        padding: 0;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: rgba(17,24,39,0.04);
+        aspect-ratio: 1 / 1;
+      }
+
+      .photo-tile img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .photo-index {
+        position: absolute;
+        right: 8px;
+        bottom: 8px;
+        color: rgba(255,255,255,0.92);
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-shadow: 0 1px 8px rgba(0,0,0,0.38);
+      }
+
+      .modal {
+        position: fixed;
+        inset: 0;
+        border: 0;
+        margin: 0;
+        padding: 0;
+        background: rgba(9, 14, 20, 0.8);
+      }
+
+      .modal::backdrop { background: rgba(9, 14, 20, 0.82); }
+
+      .viewer-shell {
+        display: grid;
+        grid-template-rows: auto minmax(0,1fr) auto;
+        width: min(100%, 1200px);
+        height: 100%;
+        max-height: 100vh;
+        margin: 0 auto;
+        padding: 14px 18px 18px;
+      }
+
+      .viewer-header {
+        display: grid;
+        grid-template-columns: 44px 1fr 44px;
+        align-items: center;
+        gap: 12px;
+        min-height: 58px;
+      }
+
+      .viewer-icon {
+        display: grid;
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(255,255,255,0.14);
+        border-radius: 50%;
+        background: rgba(255,255,255,0.08);
+        color: white;
+      }
+
+      .viewer-icon svg {
+        width: 19px;
+        height: 19px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 1.7;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .viewer-title-wrap {
+        text-align: center;
+        color: white;
+      }
+
+      .viewer-title {
+        display: block;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-size: 12px;
+      }
+
+      .viewer-count {
+        display: block;
+        margin-top: 5px;
+        color: rgba(255,255,255,0.75);
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .viewer-stage {
+        position: relative;
+        display: grid;
+        place-items: center;
+        min-height: 0;
+        padding: 8px 52px;
+      }
+
+      .viewer-stage img {
+        max-width: 100%;
+        max-height: calc(100vh - 170px);
+        object-fit: contain;
+        border-radius: 16px;
+        box-shadow: 0 18px 36px rgba(0,0,0,0.35);
+      }
+
+      .viewer-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+      }
+
+      .viewer-prev { left: 12px; }
+      .viewer-next { right: 12px; }
+
+      .viewer-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        min-height: 68px;
+        color: rgba(255,255,255,0.8);
+      }
+
+      .viewer-caption {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 12px;
+      }
+
+      .viewer-progress {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .progress-dot {
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.35);
+      }
+
+      .progress-dot.active {
+        width: 18px;
+        background: white;
+      }
+
+      .footer {
+        padding: 28px 0 40px;
+        color: var(--muted);
+        font-size: 0.72rem;
         font-weight: 800;
         letter-spacing: 0.16em;
         text-transform: uppercase;
@@ -566,181 +731,264 @@
         .hero { grid-template-columns: 1fr; }
         .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .album-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       }
 
       @media (max-width: 640px) {
-        .topbar-inner { min-height: 68px; }
-        .brand { letter-spacing: 0.1em; }
         .theme-text { display: none; }
         .stats { grid-template-columns: 1fr; }
-        .album-grid { grid-template-columns: 1fr; }
-        .hero-panel { min-height: 330px; }
+        .album-grid, .gallery-grid { grid-template-columns: 1fr; }
         .hero-actions { flex-direction: column; }
         .primary-btn, .secondary-btn { width: 100%; }
         .footer-inner { flex-direction: column; align-items: flex-start; }
+        .gallery-topbar { flex-direction: column; align-items: flex-start; }
       }
     </style>
   </head>
   <body>
     <header class="topbar">
       <div class="app-shell topbar-inner">
-        <button class="brand" type="button" id="brandButton" aria-label="Home">
+        <button class="brand" id="brandButton" type="button" aria-label="Home">
           <span class="brand-mark" aria-hidden="true">MS</span>
           <span>My Story</span>
         </button>
 
-        <div class="controls">
-          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
-            <svg id="themeIcon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M21 12.8A9 9 0 0 1 11.2 3a9 9 0 1 0 9.8 9.8Z"/>
-            </svg>
-            <span class="theme-text" id="themeText">Night</span>
-          </button>
-        </div>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+          <svg id="themeIcon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 0 1 11.2 3a9 9 0 1 0 9.8 9.8Z"/>
+          </svg>
+          <span class="theme-text" id="themeText">Night</span>
+        </button>
       </div>
     </header>
 
     <main class="main app-shell">
-      <section class="hero">
-        <div>
-          <div class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Personal Journey</div>
-          <h1 id="heroTitle">MY STORY</h1>
-          <p class="lead" id="heroSubtitle">The Experiences That Make Me</p>
+      <section id="homeView">
+        <div class="hero">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Personal Journey</div>
+            <h1 id="heroTitle">MY STORY</h1>
+            <p class="lead" id="heroSubtitle">The Experiences That Make Me</p>
 
-          <div class="hero-actions">
-            <button class="primary-btn" type="button" id="exploreButton">Explore memories</button>
-            <button class="secondary-btn" type="button" id="themeButton">Toggle mode</button>
-          </div>
-        </div>
-
-        <div class="hero-panel" aria-label="Featured gallery summary">
-          <div class="hero-stack">
-            <div class="mini-card">
-              <div>
-                <span>Life chapters</span>
-                <strong>3 albums</strong>
-              </div>
-              <div class="mini-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5h13A2.5 2.5 0 0 1 21 7.5v9A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5v-9Z"/><path d="M8 5v14M16 5v14M3 10h18"/></svg>
-              </div>
-            </div>
-
-            <div class="mini-card">
-              <div>
-                <span>Favorite memories</span>
-                <strong>My legacy</strong>
-              </div>
-              <div class="mini-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 3v18M4 7.5c0-1.9 1.6-3.5 3.5-3.5h9c1.9 0 3.5 1.6 3.5 3.5v1.1c0 1.8-1.5 3.3-3.3 3.3H7.3A3.3 3.3 0 0 1 4 8.6V7.5Z"/><path d="M7 15.5h10a3 3 0 0 1 3 3V17a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-1.5a3 3 0 0 1 3-3Z"/></svg>
-              </div>
-            </div>
-
-            <div class="mini-card">
-              <div>
-                <span>Core values</span>
-                <strong>Growth & courage</strong>
-              </div>
-              <div class="mini-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 2.8 14.9 8l5.6.8-4.1 4 1 5.6-5.4-2.8-5.4 2.8 1-5.6-4.1-4 5.6-.8L12 2.8Z"/></svg>
-              </div>
+            <div class="hero-actions">
+              <button class="primary-btn" type="button" id="exploreButton">Explore memories</button>
+              <button class="secondary-btn" type="button" id="themeButton">Toggle mode</button>
             </div>
           </div>
 
-          <div class="hero-shape" aria-hidden="true"></div>
+          <div class="hero-panel" aria-label="Photo story summary">
+            <div class="hero-stack">
+              <div class="mini-card">
+                <div>
+                  <span>Life chapters</span>
+                  <strong>3 albums</strong>
+                </div>
+                <div class="mini-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5h13A2.5 2.5 0 0 1 21 7.5v9A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5v-9Z"/><path d="M8 5v14M16 5v14M3 10h18"/></svg>
+                </div>
+              </div>
+
+              <div class="mini-card">
+                <div>
+                  <span>Favorite memories</span>
+                  <strong>My legacy</strong>
+                </div>
+                <div class="mini-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 3v18M4 7.5c0-1.9 1.6-3.5 3.5-3.5h9c1.9 0 3.5 1.6 3.5 3.5v1.1c0 1.8-1.5 3.3-3.3 3.3H7.3A3.3 3.3 0 0 1 4 8.6V7.5Z"/><path d="M7 15.5h10a3 3 0 0 1 3 3V17a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-1.5a3 3 0 0 1 3-3Z"/></svg>
+                </div>
+              </div>
+
+              <div class="mini-card">
+                <div>
+                  <span>Core values</span>
+                  <strong>Growth & courage</strong>
+                </div>
+                <div class="mini-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 2.8 14.9 8l5.6.8-4.1 4 1 5.6-5.4-2.8-5.4 2.8 1-5.6-4.1-4 5.6-.8L12 2.8Z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="hero-shape" aria-hidden="true"></div>
+          </div>
         </div>
+
+        <section class="stats" aria-label="Story highlights">
+          <article class="stat">
+            <div class="stat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 9.5V6.8A1.8 1.8 0 0 1 4.8 5h14.4A1.8 1.8 0 0 1 21 6.8v2.7"/><path d="M3 16.2v1A1.8 1.8 0 0 0 4.8 19h14.4a1.8 1.8 0 0 0 1.8-1.8v-1"/><path d="M8.5 5v14M15.5 5v14M3 12h18"/></svg>
+            </div>
+            <strong>3</strong>
+            <span>Life chapters</span>
+          </article>
+
+          <article class="stat">
+            <div class="stat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 17.5 10 11l4 4 6-8"/><path d="M18 7h2v2"/></svg>
+            </div>
+            <strong>100%</strong>
+            <span>Driven by passion</span>
+          </article>
+
+          <article class="stat">
+            <div class="stat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M7 14.5 12 8l5 6.5"/><path d="M12 8V4"/><path d="M5 18h14"/></svg>
+            </div>
+            <strong>∞</strong>
+            <span>Moments to remember</span>
+          </article>
+        </section>
+
+        <div class="section-header">
+          <div>
+            <p class="section-subtitle">Story timeline</p>
+            <h2 class="section-title">Photo albums</h2>
+          </div>
+        </div>
+
+        <section id="albumGrid" class="album-grid" aria-label="Photo albums"></section>
       </section>
 
-      <section class="stats" aria-label="Key story highlights">
-        <article class="stat">
-          <div class="stat-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M3 9.5V6.8A1.8 1.8 0 0 1 4.8 5h14.4A1.8 1.8 0 0 1 21 6.8v2.7"/><path d="M3 16.2v1A1.8 1.8 0 0 0 4.8 19h14.4a1.8 1.8 0 0 0 1.8-1.8v-1"/><path d="M8.5 5v14M15.5 5v14M3 12h18"/></svg>
-          </div>
-          <strong>3</strong>
-          <span>Life chapters</span>
-        </article>
+      <section id="albumView" class="gallery-shell" hidden>
+        <div class="gallery-topbar">
+          <button id="backButton" class="back-button" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 5-7 7 7 7M8 12h12"/></svg>
+            <span>Albums</span>
+          </button>
+          <div class="gallery-meta" id="galleryMeta">Photo library</div>
+        </div>
 
-        <article class="stat">
-          <div class="stat-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M4 17.5 10 11l4 4 6-8"/><path d="M18 7h2v2"/></svg>
+        <div class="section-header" style="margin-top:0;">
+          <div>
+            <p class="section-subtitle" id="albumEyebrow">Album</p>
+            <h2 class="section-title" id="albumTitle">My story</h2>
           </div>
-          <strong>100%</strong>
-          <span>Driven by passion</span>
-        </article>
+        </div>
 
-        <article class="stat">
-          <div class="stat-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M7 14.5 12 8l5 6.5"/><path d="M12 8V4"/><path d="M5 18h14"/></svg>
-          </div>
-          <strong>∞</strong>
-          <span>Moments to remember</span>
-        </article>
+        <div id="galleryGrid" class="gallery-grid" aria-live="polite"></div>
       </section>
-
-      <div class="section-header">
-        <div>
-          <p class="section-subtitle">Story timeline</p>
-          <h2 class="section-title">Photo albums</h2>
-        </div>
-      </div>
-
-      <section class="album-grid" id="albumGrid" aria-label="Photo albums"></section>
-
-      <footer class="footer">
-        <div class="footer-inner">
-          <span>MY STORY</span>
-          <span>The Experiences That Make Me</span>
-        </div>
-      </footer>
     </main>
 
+    <footer class="footer">
+      <div class="app-shell footer-inner">
+        <span>MY STORY</span>
+        <span>The Experiences That Make Me</span>
+      </div>
+    </footer>
+
+    <dialog id="photoViewer" class="modal" aria-label="Photo viewer">
+      <div class="viewer-shell">
+        <div class="viewer-header">
+          <button class="viewer-icon" id="closeViewer" type="button" aria-label="Close photo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          </button>
+          <div class="viewer-title-wrap">
+            <span class="viewer-title" id="viewerTitle">Album</span>
+            <span class="viewer-count" id="viewerCount">1 / 1</span>
+          </div>
+          <span aria-hidden="true"></span>
+        </div>
+
+        <div class="viewer-stage">
+          <button class="viewer-icon viewer-arrow viewer-prev" id="previousPhoto" type="button" aria-label="Previous photo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <img id="viewerImage" src="" alt="" />
+          <button class="viewer-icon viewer-arrow viewer-next" id="nextPhoto" type="button" aria-label="Next photo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+
+        <div class="viewer-bottom">
+          <div class="viewer-caption" id="viewerCaption"></div>
+          <div class="viewer-progress" id="viewerProgress" aria-hidden="true"></div>
+        </div>
+      </div>
+    </dialog>
+
     <script>
-      const ALBUMS = [
-        { id: '1', number: '01', key: 'childhood', title: 'My Childhood', summary: 'The roots of my story', icon: 'sparkle', bg: 'linear-gradient(135deg, #cfe6ff 0%, #7db6ff 100%)' },
-        { id: '2', number: '02', key: 'aviation', title: 'Aviation Journey', summary: 'Dreams that lifted me', icon: 'flight', bg: 'linear-gradient(135deg, #9ac6ff 0%, #2b6ae8 100%)' },
-        { id: '3', number: '03', key: 'wrestling', title: 'Passion for Wrestling', summary: 'Discipline, strength, and grit', icon: 'trophy', bg: 'linear-gradient(135deg, #87d6ff 0%, #1477d3 100%)' }
-      ];
+      const albumMeta = {
+        '1': { title: 'My Childhood', summary: 'The roots of my story' },
+        '2': { title: 'Aviation Journey', summary: 'Dreams that lifted me' },
+        '3': { title: 'Passion for Wrestling', summary: 'Discipline, strength, and grit' }
+      };
+
+      const state = {
+        albums: {},
+        activeAlbumId: null,
+        activePhotoIndex: 0,
+      };
 
       const root = document.documentElement;
-      const savedTheme = localStorage.getItem('my-story-theme');
-      const preferredTheme = savedTheme || 'light';
-      root.setAttribute('data-theme', preferredTheme);
-
-      const themeIcon = document.getElementById('themeIcon');
-      const themeText = document.getElementById('themeText');
-      const heroTitle = document.getElementById('heroTitle');
-      const heroSubtitle = document.getElementById('heroSubtitle');
       const albumGrid = document.getElementById('albumGrid');
+      const homeView = document.getElementById('homeView');
+      const albumView = document.getElementById('albumView');
+      const galleryGrid = document.getElementById('galleryGrid');
+      const albumTitle = document.getElementById('albumTitle');
+      const albumEyebrow = document.getElementById('albumEyebrow');
+      const galleryMeta = document.getElementById('galleryMeta');
+      const photoViewer = document.getElementById('photoViewer');
+      const viewerImage = document.getElementById('viewerImage');
+      const viewerTitle = document.getElementById('viewerTitle');
+      const viewerCount = document.getElementById('viewerCount');
+      const viewerCaption = document.getElementById('viewerCaption');
+      const viewerProgress = document.getElementById('viewerProgress');
 
       function setTheme(theme) {
         root.setAttribute('data-theme', theme);
         localStorage.setItem('my-story-theme', theme);
         const isDark = theme === 'dark';
-        themeText.textContent = isDark ? 'Day' : 'Night';
-        themeIcon.innerHTML = isDark
+        document.getElementById('themeText').textContent = isDark ? 'Day' : 'Night';
+        document.getElementById('themeIcon').innerHTML = isDark
           ? '<path d="M12 3v2.5M12 18.5V21M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M3 12h2.5M18.5 12H21M4.93 19.07l1.77-1.77M17.3 6.7l1.77-1.77"/><circle cx="12" cy="12" r="4.5"/>'
           : '<path d="M21 12.8A9 9 0 0 1 11.2 3a9 9 0 1 0 9.8 9.8Z"/>';
       }
 
+      function formatNumber(value) {
+        return String(value).padStart(2, '0');
+      }
+
+      function safeLabel(fileName) {
+        return fileName
+          .replace(/\.[^.]+$/, '')
+          .replace(/[_-]+/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim() || 'Photo';
+      }
+
+      function getAlbumPhotos(albumId) {
+        return state.albums[albumId] || [];
+      }
+
       function renderAlbumCards() {
         albumGrid.innerHTML = '';
+        const ids = Object.keys(state.albums).sort();
 
-        ALBUMS.forEach((album) => {
+        ids.forEach((albumId) => {
+          const photos = getAlbumPhotos(albumId);
+          const album = albumMeta[albumId] || { title: `Album ${albumId}`, summary: 'Memories' };
+          const firstPhoto = photos[0]?.src || '';
+
           const card = document.createElement('button');
           card.type = 'button';
           card.className = 'album-card';
           card.setAttribute('aria-label', `Open ${album.title}`);
+          card.addEventListener('click', () => openAlbum(albumId));
 
           const cover = document.createElement('span');
           cover.className = 'album-cover';
-          cover.style.background = album.bg;
 
-          const iconSvg = {
-            sparkle: '<svg viewBox="0 0 24 24"><path d="M12 2.5v5M12 16.5v5M2.5 12h5M16.5 12h5M5.5 5.5l3.6 3.6M14.9 14.9l3.6 3.6M5.5 18.5l3.6-3.6M14.9 9.1l3.6-3.6"/></svg>',
-            flight: '<svg viewBox="0 0 24 24"><path d="M2 16l7-2 8-8 3 3-8 8-2 7-2-7-6-1Z"/><path d="M13 6l5 5"/></svg>',
-            trophy: '<svg viewBox="0 0 24 24"><path d="M8 4h8v3a4 4 0 0 1-8 0V4Z"/><path d="M6 4H4v2a4 4 0 0 0 4 4"/><path d="M18 4h2v2a4 4 0 0 1-4 4"/><path d="M12 11v5"/><path d="M9 20h6"/><path d="M7 18h10"/></svg>'
-          };
+          if (firstPhoto) {
+            const img = document.createElement('img');
+            img.src = firstPhoto;
+            img.alt = album.title;
+            img.loading = 'lazy';
+            cover.appendChild(img);
+          }
 
-          cover.innerHTML = `${iconSvg[album.icon] || iconSvg.sparkle}<span class="cover-number">${album.number}</span>`;
+          const number = document.createElement('span');
+          number.className = 'cover-number';
+          number.textContent = `0${albumId}`;
+          cover.appendChild(number);
 
           const info = document.createElement('span');
           info.className = 'album-info';
@@ -762,20 +1010,118 @@
 
           const pointer = document.createElement('span');
           pointer.className = 'album-pointer';
-          pointer.textContent = 'Open';
+          pointer.textContent = photos.length ? `${photos.length} photos` : 'Open';
 
           metaRow.append(chip, pointer);
           info.append(title, desc, metaRow);
           card.append(cover, info);
-
-          card.addEventListener('click', () => {
-            heroTitle.textContent = album.title;
-            heroSubtitle.textContent = album.summary;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          });
-
           albumGrid.appendChild(card);
         });
+      }
+
+      function openAlbum(albumId) {
+        const photos = getAlbumPhotos(albumId);
+        if (!photos.length) return;
+
+        state.activeAlbumId = albumId;
+        state.activePhotoIndex = 0;
+
+        const album = albumMeta[albumId] || { title: `Album ${albumId}` };
+        homeView.hidden = true;
+        albumView.hidden = false;
+
+        albumTitle.textContent = album.title;
+        albumEyebrow.textContent = `Album ${albumId}`;
+        galleryMeta.textContent = `${photos.length} photos`;
+
+        galleryGrid.innerHTML = '';
+        photos.forEach((photo, index) => {
+          const tile = document.createElement('button');
+          tile.type = 'button';
+          tile.className = 'photo-tile';
+          tile.setAttribute('aria-label', `Open photo ${index + 1}`);
+          tile.addEventListener('click', () => openViewer(index));
+
+          const img = document.createElement('img');
+          img.src = photo.src;
+          img.alt = photo.label;
+          img.loading = 'lazy';
+          tile.appendChild(img);
+
+          const number = document.createElement('span');
+          number.className = 'photo-index';
+          number.textContent = formatNumber(index + 1);
+          tile.appendChild(number);
+
+          galleryGrid.appendChild(tile);
+        });
+      }
+
+      function closeAlbum() {
+        state.activeAlbumId = null;
+        homeView.hidden = false;
+        albumView.hidden = true;
+        photoViewer.close();
+      }
+
+      function buildViewerProgress(count) {
+        viewerProgress.innerHTML = '';
+        for (let i = 0; i < count; i++) {
+          const dot = document.createElement('span');
+          dot.className = `progress-dot${i === state.activePhotoIndex ? ' active' : ''}`;
+          viewerProgress.appendChild(dot);
+        }
+      }
+
+      function openViewer(index) {
+        const albumId = state.activeAlbumId;
+        const photos = getAlbumPhotos(albumId);
+        if (!photos || !photos.length) return;
+
+        state.activePhotoIndex = index;
+        const photo = photos[index];
+        if (!photo) return;
+
+        viewerTitle.textContent = albumMeta[albumId]?.title || `Album ${albumId}`;
+        viewerCount.textContent = `${formatNumber(index + 1)} / ${formatNumber(photos.length)}`;
+        viewerCaption.textContent = photo.label;
+        viewerImage.src = photo.src;
+        viewerImage.alt = photo.label;
+        buildViewerProgress(photos.length);
+        photoViewer.showModal();
+      }
+
+      function closeViewer() {
+        if (photoViewer.open) photoViewer.close();
+      }
+
+      function showNextPhoto(direction) {
+        const albumId = state.activeAlbumId;
+        const photos = getAlbumPhotos(albumId);
+        if (!photos.length) return;
+
+        state.activePhotoIndex = (state.activePhotoIndex + direction + photos.length) % photos.length;
+        openViewer(state.activePhotoIndex);
+      }
+
+      async function loadPhotos() {
+        try {
+          const response = await fetch('photos.json', { cache: 'no-store' });
+          if (!response.ok) throw new Error('photos.json not found');
+          const data = await response.json();
+
+          Object.keys(data).forEach((albumId) => {
+            const files = Array.isArray(data[albumId]) ? data[albumId] : [];
+            state.albums[albumId] = files.map((file) => ({
+              src: `./${albumId}/${file}`,
+              label: safeLabel(file),
+            }));
+          });
+
+          renderAlbumCards();
+        } catch (error) {
+          albumGrid.innerHTML = '<div style="grid-column:1/-1;padding:28px;border:1px solid var(--line);border-radius:18px;background:var(--panel);color:var(--muted);">Photos could not be loaded from photos.json.</div>';
+        }
       }
 
       document.getElementById('themeToggle').addEventListener('click', () => {
@@ -789,17 +1135,33 @@
       });
 
       document.getElementById('exploreButton').addEventListener('click', () => {
-        albumGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.getElementById('albumGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
 
       document.getElementById('brandButton').addEventListener('click', () => {
-        heroTitle.textContent = 'MY STORY';
-        heroSubtitle.textContent = 'The Experiences That Make Me';
+        closeAlbum();
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
-      setTheme(preferredTheme);
-      renderAlbumCards();
+      document.getElementById('backButton').addEventListener('click', closeAlbum);
+      document.getElementById('closeViewer').addEventListener('click', closeViewer);
+      document.getElementById('previousPhoto').addEventListener('click', () => showNextPhoto(-1));
+      document.getElementById('nextPhoto').addEventListener('click', () => showNextPhoto(1));
+
+      photoViewer.addEventListener('click', (event) => {
+        if (event.target === photoViewer) closeViewer();
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && photoViewer.open) closeViewer();
+        if (!photoViewer.open) return;
+        if (event.key === 'ArrowLeft') showNextPhoto(-1);
+        if (event.key === 'ArrowRight') showNextPhoto(1);
+      });
+
+      const savedTheme = localStorage.getItem('my-story-theme') || 'light';
+      setTheme(savedTheme);
+      loadPhotos();
     </script>
   </body>
 </html>
